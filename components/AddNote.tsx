@@ -1,14 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import useNotes from "@/hooks/useNotes";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { addNote } from "@/helpers/notes";
 
 export default function AddNote() {
   const [note, setNote] = useState("");
-  const { addNote } = useNotes();
+
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: addNote,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["notes"] });
+    },
+  });
 
   const onClickHandler = () => {
-    addNote(note);
+    mutation.mutate(note);
     setNote("");
   };
 
