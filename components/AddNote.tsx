@@ -2,10 +2,14 @@
 
 import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useUser } from "@clerk/nextjs";
+
 import { addNote } from "@/helpers/notes";
 
 export default function AddNote() {
   const [note, setNote] = useState("");
+
+  const { user } = useUser();
 
   const queryClient = useQueryClient();
   const mutation = useMutation({
@@ -16,7 +20,7 @@ export default function AddNote() {
   });
 
   const onClickHandler = () => {
-    mutation.mutate(note);
+    mutation.mutate({ note, user_id: user.id });
     setNote("");
   };
 

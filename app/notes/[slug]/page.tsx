@@ -44,7 +44,7 @@ export default function NotePage({ params }) {
       </button>
       <button
         className="rounded bg-black text-white p-1"
-        onClick={() => router.push("/")}
+        onClick={() => router.push("/notes")}
       >
         Go Back
       </button>

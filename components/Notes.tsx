@@ -28,26 +28,28 @@ export default function Notes() {
     <div>
       <AddNote />
       {data.rows
-        .map((note) => {
-          return (
-            <div key={note.note_id} className="flex gap-2">
-              <p>{note.note_text}</p>
-              <button
-                onClick={() => router.push(`/notes/${note.note_id}`)}
-                className="rounded bg-yellow-400 p-1"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => mutation.mutate(note.note_id)}
-                className="rounded bg-red-500 p-1"
-              >
-                Delete
-              </button>
-            </div>
-          );
-        })
-        .reverse()}
+        ? data.rows
+            .map((note) => {
+              return (
+                <div key={note.note_id} className="flex gap-2">
+                  <p>{note.note_text}</p>
+                  <button
+                    onClick={() => router.push(`/notes/${note.note_id}`)}
+                    className="rounded bg-yellow-400 p-1"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => mutation.mutate(note.note_id)}
+                    className="rounded bg-red-500 p-1"
+                  >
+                    Delete
+                  </button>
+                </div>
+              );
+            })
+            .reverse()
+        : null}
     </div>
   );
 }

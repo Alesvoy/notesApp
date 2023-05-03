@@ -1,4 +1,6 @@
 import React from "react";
+import { ClerkProvider } from "@clerk/nextjs/app-beta";
+
 import Providers from "@/utils/provider";
 
 import { Inter } from "next/font/google";
@@ -17,10 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <Providers>{children}</Providers>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
