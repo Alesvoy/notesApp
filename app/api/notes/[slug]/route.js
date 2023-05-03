@@ -3,10 +3,7 @@ import { getAuth } from "@clerk/nextjs/server";
 
 import conn from "../../../../lib/db";
 
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { slug: string } }
-) {
+export async function GET(req, { params }) {
   const { slug } = params;
   const { userId } = getAuth(req);
 
@@ -20,10 +17,7 @@ export async function GET(
   return NextResponse.json(result.rows[0]);
 }
 
-export async function DELETE(
-  req: NextRequest,
-  { params }: { params: { slug: string } }
-) {
+export async function DELETE(req, { params }) {
   const { slug } = params;
   const { userId } = getAuth(req);
 
@@ -37,10 +31,7 @@ export async function DELETE(
   return NextResponse.json({ status: "ok" });
 }
 
-export async function PATCH(
-  req: NextRequest,
-  { params }: { params: { slug: string } }
-) {
+export async function PATCH(req, { params }) {
   const { slug } = params;
   const { userId } = getAuth(req);
 

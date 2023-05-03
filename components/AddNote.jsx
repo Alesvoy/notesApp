@@ -24,7 +24,7 @@ export default function AddNote() {
     setNote("");
   };
 
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeHandler = (e) => {
     setNote(e.target.value);
   };
 

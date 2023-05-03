@@ -3,7 +3,7 @@ import { getAuth } from "@clerk/nextjs/server";
 
 import conn from "../../../lib/db";
 
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET(req, res) {
   try {
     const query = "SELECT * FROM notes WHERE user_id = $1";
     const { userId } = getAuth(req);
@@ -20,7 +20,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
   }
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request) {
   const json = await request.json();
   const query = "INSERT INTO notes(user_id, note_text) VALUES ($1, $2)";
   const values = [json.user_id, json.note];
