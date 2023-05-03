@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
 import AddNote from "./AddNote";
-import { fetchNotes, removeNote } from "@/helpers/notes";
+import { fetchNotes, removeNote } from "../helpers/notes";
 
 export default function Notes() {
   const router = useRouter();

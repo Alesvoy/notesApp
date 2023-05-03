@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useUser } from "@clerk/nextjs";
 
-import { addNote } from "@/helpers/notes";
+import { addNote } from "../helpers/notes";
 
 export default function AddNote() {
   const [note, setNote] = useState("");

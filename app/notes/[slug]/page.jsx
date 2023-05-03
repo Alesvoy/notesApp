@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
-import { editNote, fetchNote } from "@/helpers/notes";
+import { editNote, fetchNote } from "../../../helpers/notes";
 
 export default function NotePage({ params }) {
   const [note, setNote] = useState("");

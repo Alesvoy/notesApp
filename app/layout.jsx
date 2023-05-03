@@ -1,7 +1,7 @@
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs/app-beta";
 
-import Providers from "@/utils/provider";
+import Providers from "../utils/provider";
 
 import { Inter } from "next/font/google";
 import "./globals.css";
