@@ -27,8 +27,8 @@ export default function Notes() {
   return (
     <div>
       <AddNote />
-      {data.rows
-        ? data.rows
+      {data
+        ? data
             .map((note) => {
               return (
                 <div key={note.note_id} className="flex gap-2">

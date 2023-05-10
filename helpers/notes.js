@@ -12,7 +12,7 @@ export const addNote = (data) => {
   const { note, user_id } = data;
   return fetch("/api/notes", {
     method: "POST",
-    body: JSON.stringify({ note, user_id }),
+    body: JSON.stringify({ note_text: note, user_id }),
     headers: {
       "Content-Type": "application/json",
     },
@@ -28,7 +28,7 @@ export const removeNote = (id) => {
 export const editNote = (note, slug) => {
   return fetch(`http://localhost:3000/api/notes/${slug}`, {
     method: "PATCH",
-    body: JSON.stringify({ note }),
+    body: JSON.stringify({ note_text: note }),
     headers: {
       "Content-Type": "application/json",
     },
